@@ -1,0 +1,48 @@
+﻿@model Lab_4_MVC.Models.Library
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Library</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Customer.CustomerAdress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Book)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Book.BookAuthor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BorrowDateStart)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BorrowDateStart)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.borrowDateEnd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.borrowDateEnd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAvaible)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsAvaible)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.LibraryId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Lab_4_MVC.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@using (Html.BeginForm("Index", "Customers", FormMethod.Get))
+{
+    <p>
+        Search: @Html.TextBox("data", ViewBag.FilterValue as string)
+        <input type="submit" value="Find" />
+    </p>
+
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAdress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAge)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAge)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model Lab_4_MVC.Models.Library
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Library</h4>
+<h2>@ViewBag.message</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FKCustomerId" class="control-label"></label>
+                <select asp-for="FKCustomerId" class ="form-control" asp-items="ViewBag.FKCustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FKBookId" class="control-label"></label>
+                <select asp-for="FKBookId" class ="form-control" asp-items="ViewBag.FKBookId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowDateStart" class="control-label"></label>
+                <input asp-for="BorrowDateStart" class="form-control" type="date"/>
+                <span asp-validation-for="BorrowDateStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="borrowDateEnd" class="control-label"></label>
+                <input asp-for="borrowDateEnd" class="form-control" type="date"/>
+                <span asp-validation-for="borrowDateEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAvaible" /> @Html.DisplayNameFor(model => model.IsAvaible)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -15,6 +15,5 @@ namespace Lab_4_MVC.Models
         public Book Book { get; set; }
         public DateOnly? BorrowDateStart { get; set; }
         public DateOnly? borrowDateEnd { get; set; }
-        public bool IsAvaible { get; set; } = true;
     }
 }

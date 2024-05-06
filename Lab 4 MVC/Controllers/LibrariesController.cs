@@ -70,7 +70,7 @@ namespace Lab_4_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LibraryId,FKCustomerId,FKBookId,BorrowDateStart,borrowDateEnd,IsAvaible")] Library library)
+        public async Task<IActionResult> Create([Bind("LibraryId,FKCustomerId,FKBookId,BorrowDateStart,borrowDateEnd")] Library library)
         {
             var bookBorrowed = _context.Librarys.Any(x => x.FKBookId == library.FKBookId && x.borrowDateEnd > library.BorrowDateStart);
                if (bookBorrowed) {
@@ -108,7 +108,7 @@ namespace Lab_4_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LibraryId,FKCustomerId,FKBookId,BorrowDateStart,borrowDateEnd,IsAvaible")] Library library)
+        public async Task<IActionResult> Edit(int id, [Bind("LibraryId,FKCustomerId,FKBookId,BorrowDateStart,borrowDateEnd")] Library library)
         {
             if (id != library.LibraryId)
             {
@@ -120,9 +120,6 @@ namespace Lab_4_MVC.Controllers
 
                 return RedirectToAction(nameof(Index));
             
-            ViewData["FKBookId"] = new SelectList(_context.Books, "BookId", "BookName", library.FKBookId);
-            ViewData["FKCustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", library.FKCustomerId);
-            return View(library);
         }
 
         // GET: Libraries/Delete/5

@@ -22,7 +22,7 @@ namespace Lab_4_MVC.Data
                 );
             builder.Entity<Book>().HasData(
                 new Book() { BookId = 1, BookName = "Pippi Långstrump", BookAuthor = "Astrid Lindgren", BookDescription = ""},
-                new Book() { BookId = 2, BookName = "Hur man bygger en app", BookAuthor = "Reidar", BookDescription = "Reidar går igenom bit för bit hur man bygger en simple app." },
+                new Book() { BookId = 2, BookName = "Hur man bygger en app", BookAuthor = "Reidar", BookDescription = "Reidar går igenom bit för bit hur man bygger en simpel app." },
                 new Book() { BookId = 3, BookName = "Hur man tjänar pengar", BookAuthor = "Max Million", BookDescription = "" },
                 new Book() { BookId = 4, BookName = "Hur man brygger öl", BookAuthor = "Sten Hård", BookDescription = "Sten hård lär ut hur man brygger öl." }
                 );
